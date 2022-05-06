@@ -26,7 +26,7 @@ notifier.notify();
 
 try {
   // eslint-disable-next-line import/no-unresolved
-  config = utils.deepmerge(require('./config.default'), require('./config'));
+  config = utils.deepmerge(require('./config.default'));
 } catch (e) {
   if (e.code === 'MODULE_NOT_FOUND') {
     console.log('No custom config.js found, loading config.default.js');
@@ -47,7 +47,7 @@ if (config.options.console) {
 }
 
 commander
-  .version(require('./package').version)
+  .version()
   .option('-U, --url <url>', 'connection string url')
   .option('-H, --host <host>', 'hostname or address of the db(deprecated)')
   .option('-P, --dbport <host>', 'port of the db(deprecated)')
